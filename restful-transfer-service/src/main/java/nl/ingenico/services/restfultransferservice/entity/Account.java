@@ -1,7 +1,9 @@
 package nl.ingenico.services.restfultransferservice.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
@@ -18,7 +20,13 @@ public class Account {
 	@Min(value = 0, message = "Enter an initial balance")
 	@NotNull(message = "Enter an initial balance")
 	private BigDecimal balance;
+	
+	@Column(name="create_date")
+	private LocalDate createDate;
 
+	@Column(name="expiry_date")
+	private LocalDate expiryDate;
+	
 	/**
 	 * The default constructor
 	 */
@@ -64,6 +72,34 @@ public class Account {
 		this.balance = balance;
 	}
 
+	/**
+	 * @return the createDate
+	 */
+	public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	/**
+	 * @param createDate the createDate to set
+	 */
+	public void setExpiryDate(LocalDate expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	/**
+	 * @return the createDate
+	 */
+	public LocalDate getExpiryDate() {
+		return expiryDate;
+	}
+
+	/**
+	 * @param createDate the createDate to set
+	 */
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

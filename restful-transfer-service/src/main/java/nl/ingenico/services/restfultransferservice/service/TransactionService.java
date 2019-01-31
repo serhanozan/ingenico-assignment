@@ -1,5 +1,6 @@
 package nl.ingenico.services.restfultransferservice.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -73,5 +74,9 @@ public class TransactionService{
 
 	public List<Account> getAllAccounts() {
 		return accountRepository.findAll();
+	}
+	
+	public List<Account> getAccountsByDate(LocalDate created) {
+		return accountRepository.findAllByCreateDate(created);
 	}
 }

@@ -1,4 +1,6 @@
 package nl.ingenico.services.restfultransferservice.repository;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.LockModeType;
@@ -15,4 +17,6 @@ public interface AccountRepository extends JpaRepository<Account, String>{
 	@Override
 	@Lock(LockModeType.PESSIMISTIC_WRITE) // in order to achieve same functionality as SELECT FOR UPDATE
 	Optional<Account> findById(String id);
+	
+	public List<Account> findAllByCreateDate(LocalDate created);
 }
