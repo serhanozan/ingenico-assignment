@@ -15,6 +15,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -82,4 +83,8 @@ public class TransferResource {
 		return service.getAccountsByDate(date);
 	}
 	
+	@PutMapping("/account/like")
+	public List<Account> getAccountsLike(@RequestBody Account account) {
+		return service.getAccountsByExample(account);
+	}
 }
